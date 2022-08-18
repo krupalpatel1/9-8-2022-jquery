@@ -1,0 +1,86 @@
+<html>
+<head>
+<title>Form Validation</title>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function() {
+$("#formdetails").validate({
+rules: {
+fname: "required",
+lname: "required",
+email: {
+required: true,
+email: true
+},
+pwd: {
+required: true,
+minlength: 5
+},
+cpwd: {
+required: true,
+minlength: 5
+},
+url: {
+url: true
+},
+comment: {
+required: true
+}
+},
+messages: {
+comment: "Please enter a message."
+}
+});
+});
+</script>
+<style type="text/css">
+{ font-family: Calibri;
+font-size: 12px;
+line-height: 16px;
+}
+.submit {
+margin-left: 125px;
+margin-top: 10px;
+}
+.label {
+display: block;
+float: left;
+width: 150px;
+text-align: right;
+margin-right: 5px;
+}
+.Details-info {
+padding: 12px 0;
+clear: both;
+width: 800px;
+}
+label.error
+{
+width: 250px;
+display: block;
+float: left;
+color: red;
+padding-left: 10px;
+}
+input[type=text], textarea { width: 300px; float: left; }
+textarea {
+height: 100px;
+}
+input[type=password], textarea { width: 300px; float: left; }
+</style>
+</head>
+<body>
+<left><h1>Form Validation</h1></left>
+<form id="formdetails" method="post" action="">
+<div class="Details-info"><span class="label">First Name *</span><input type="text" name="fname" /></div>
+<div class="Details-info"><span class="label">Last Name *</span><input type="text" name="lname" /></div>
+<div class="Details-info"><span class="label">Password *</span><input type="password" name="pwd" /></div>
+<div class="Details-info"><span class="label">Confirm Password *</span><input type="password" name="cpwd" /></div>
+<div class="Details-info"><span class="label">E-Mail *</span><input type="text" name="email" /></div>
+<div class="Details-info"><span class="label">URL</span><input type="text" name="url" /></div>
+<div class="Details-info"><span class="label">Message *</span><textarea name="comment" ></textarea></div>
+<div class="Details-info"><input class="submit" type="submit" value="Submit"></div>
+</form>
+</body>
+</html>
